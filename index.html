@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>AETHER | Synthesizing the Unseen</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Geist:wght@400;600&amp;family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#b7f700",
+                        "primary-fixed-dim": "#c8c6c7",
+                        "surface-variant": "#353437",
+                        "secondary-fixed-dim": "#c6c6c6",
+                        "on-primary": "#313031",
+                        "surface-container-high": "#2a2a2c",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-lowest": "#0e0e10",
+                        "on-primary-fixed": "#1c1b1c",
+                        "surface-container-highest": "#353437",
+                        "on-tertiary-fixed-variant": "#374e00",
+                        "secondary-container": "#454747",
+                        "on-background": "#e4e2e4",
+                        "on-surface": "#e4e2e4",
+                        "surface-bright": "#39393b",
+                        "error": "#ffb4ab",
+                        "inverse-primary": "#5f5e5f",
+                        "primary": "#c8c6c7",
+                        "inverse-surface": "#e4e2e4",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "outline": "#919094",
+                        "on-primary-container": "#7a797a",
+                        "on-secondary-fixed-variant": "#454747",
+                        "on-surface-variant": "#c7c6ca",
+                        "primary-container": "#0a0a0b",
+                        "tertiary-fixed-dim": "#a0d800",
+                        "surface-tint": "#c8c6c7",
+                        "secondary-fixed": "#e2e2e2",
+                        "surface": "#131315",
+                        "surface-dim": "#131315",
+                        "inverse-on-surface": "#303032",
+                        "surface-container-low": "#1b1b1d",
+                        "primary-fixed": "#e5e2e3",
+                        "surface-container": "#1f1f21",
+                        "error-container": "#93000a",
+                        "outline-variant": "#46464a",
+                        "on-error": "#690005",
+                        "on-tertiary": "#253600",
+                        "on-secondary-container": "#b5b5b5",
+                        "secondary": "#c6c6c6",
+                        "tertiary": "#a0d800",
+                        "on-tertiary-fixed": "#141f00",
+                        "on-primary-fixed-variant": "#474647",
+                        "tertiary-container": "#060c00",
+                        "on-tertiary-container": "#618500",
+                        "on-secondary": "#2f3131",
+                        "background": "#131315"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "unit": "4px",
+                        "overlap-offset": "-32px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Syne"],
+                        "body-md": ["Geist"],
+                        "display-xl": ["Syne"],
+                        "label-code": ["Space Mono"],
+                        "body-lg": ["Geist"],
+                        "display-xl-mobile": ["Syne"],
+                        "headline-sm": ["Syne"],
+                        "label-caps": ["Space Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["42px", { "lineHeight": "48px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-xl": ["84px", { "lineHeight": "90px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "label-code": ["13px", { "lineHeight": "18px", "letterSpacing": "0.05em", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-xl-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.15em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0A0A0B;
+            color: #e4e2e4;
+            overflow-x: hidden;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-card {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(145, 144, 148, 0.1);
+        }
+
+        .iridescent-border {
+            position: relative;
+        }
+
+        .iridescent-border::after {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(45deg, #a0d800, #c8c6c7, #b7f700, #313031);
+            z-index: -1;
+            opacity: 0.2;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            -webkit-mask-composite: destination-out;
+        }
+
+        .shimmer-hover:hover .shimmer-layer {
+            transform: translateX(100%);
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .prompt-glow {
+            box-shadow: 0 0 40px rgba(160, 216, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="font-body-md text-body-md selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+    <!-- TopAppBar -->
+    <nav
+        class="fixed top-0 w-full backdrop-blur-xl bg-surface/10 border-b border-outline-variant/20 flex justify-between items-center px-margin-desktop py-4 z-50">
+        <div class="font-headline-sm text-headline-sm font-bold tracking-tighter text-primary dark:text-primary">AETHER
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="text-tertiary-fixed font-bold font-label-caps text-label-caps hover:text-tertiary transition-colors duration-500"
+                href="#gallery">Gallery</a>
+            <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors duration-500"
+                href="#prompts">Prompts</a>
+            <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors duration-500"
+                href="#experiments">Experiments</a>
+        </div>
+        <div class="flex items-center gap-4 text-primary">
+            <span class="material-symbols-outlined hover:text-tertiary transition-all active:scale-95 cursor-pointer"
+                data-icon="terminal">terminal</span>
+            <span class="material-symbols-outlined hover:text-tertiary transition-all active:scale-95 cursor-pointer"
+                data-icon="account_circle">account_circle</span>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex flex-col justify-center px-margin-desktop pt-24">
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <div class="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-tertiary/10 rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-1/4 -left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px]"></div>
+        </div>
+        <div class="relative z-10 max-w-5xl">
+            <div
+                class="inline-block px-4 py-1 glass-card rounded-full mb-8 font-label-code text-label-code text-tertiary border border-tertiary/20">
+                LATEST MODEL: V.04_SYNTHESIS
+            </div>
+            <h1 class="font-display-xl text-headline-lg lg:text-display-xl text-primary leading-[0.9] mb-8">
+                Synthesizing <br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-secondary">the
+                    Unseen.</span>
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12">
+                A journey through the latent space where algorithmic logic meets ethereal beauty. Explore a curated
+                collection of generative art driven by experimental prompt engineering.
+            </p>
+            <div class="flex gap-6">
+                <button
+                    class="px-8 py-4 glass-card iridescent-border font-label-caps text-label-caps text-primary hover:bg-tertiary-container/40 transition-all duration-300">
+                    VIEW ARCHIVE
+                </button>
+                <button
+                    class="px-8 py-4 font-label-caps text-label-caps text-on-surface border border-outline/30 hover:border-tertiary/50 transition-all">
+                    THE PROCESS
+                </button>
+            </div>
+        </div>
+        <!-- Overlapping Fluid Art Pieces -->
+        <div class="mt-overlap-offset relative w-full h-[500px] md:h-[600px] z-20 pointer-events-none">
+            <div class="absolute right-0 top-24 w-3/4 h-full glass-card rounded-xl overflow-hidden rotate-2 shadow-2xl">
+                <img class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
+                    data-alt="A sprawling, intricate digital landscape composed of liquid mercury and iridescent glass shards. The composition uses a dark, futuristic aesthetic with neon green light cutting through a deep obsidian atmosphere. High-contrast lighting highlights the fluid, organic shapes that defy physics, creating a sense of ethereal mystery and advanced technology."
+                    src="images/image-02.jpg" />
+            </div>
+            <div
+                class="absolute left-margin-desktop top-12 w-1/3 h-[400px] glass-card rounded-xl overflow-hidden -rotate-3 border-tertiary/30 shadow-2xl">
+                <img class="w-full h-full object-cover opacity-80"
+                    data-alt="Close-up macro shot of a generative structure resembling crystalline bio-luminescent flora. The textures are a mix of translucent silver and vibrant lime green fibers glowing from within. The lighting is moody and focused, casting soft shadows that emphasize the complex geometric patterns and ethereal depth of the artificial organism."
+                    src="images/image-01.jpg" />
+            </div>
+        </div>
+    </header>
+    <!-- 01. Latent Gallery -->
+    <section class="py-32 px-margin-desktop bg-surface-container-lowest" id="gallery">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+            <div class="max-w-xl">
+                <span class="font-label-code text-label-code text-tertiary mb-4 block">SECTION / 01</span>
+                <h2 class="font-headline-lg text-headline-lg text-primary">Latent Gallery</h2>
+                <p class="text-on-surface-variant mt-6">A floating grid of artifacts retrieved from the deep layers of
+                    neural networks. Each piece is an exploration of form, light, and mathematical serendipity.</p>
+            </div>
+            <div class="flex gap-4">
+                <button class="p-4 rounded-full border border-outline-variant hover:border-tertiary transition-all">
+                    <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                </button>
+                <button class="p-4 rounded-full border border-outline-variant hover:border-tertiary transition-all">
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+            <div class="md:col-span-7 aspect-[4/5] glass-card overflow-hidden group relative shimmer-hover">
+                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+                    data-alt="A grand, surreal architectural structure floating in a void of dark cosmic dust. The building is constructed from glowing silver filaments and translucent glass, reflecting faint ripples of neon green light. The mood is majestic and quiet, suggesting a futuristic sanctuary designed by a non-human intelligence, with light-refracting surfaces and deep atmospheric depth."
+                    src="images/image-03.jpg" />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-surface-container-highest/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-8 flex flex-col justify-end">
+                    <span class="font-label-caps text-label-caps text-tertiary">#VOID_01</span>
+                    <h3 class="font-headline-sm text-headline-sm">The Silent Observatory</h3>
+                </div>
+            </div>
+            <div class="md:col-span-5 flex flex-col gap-gutter">
+                <div class="h-1/2 glass-card overflow-hidden group relative">
+                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                        data-alt="Abstract fluid dynamics rendered in high-definition digital art. Silvery metallic waves clash with neon green liquid, creating intricate turbulent patterns across the canvas. The lighting is cinematic, highlighting the sharp edges of the wave crests and the deep, dark valleys of the fluid. The aesthetic is clean, futuristic, and highly polished."
+                        src="images/image-04.jpg" />
+                </div>
+                <div class="h-1/2 glass-card overflow-hidden group relative">
+                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                        data-alt="A generative portrait of an entity composed entirely of refracted light and geometric glass prisms. The subject has no defined skin, only a complex network of silver threads and glowing green nodes. The background is a minimalist deep black, emphasizing the brilliance and transparency of the figure. The overall mood is ethereal and speculative."
+                        src="images/image-05.jpg" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 02. Prompt Engineering -->
+    <section class="py-32 px-margin-desktop bg-surface overflow-hidden" id="prompts">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+            <div class="relative">
+                <div
+                    class="absolute -top-12 -left-12 font-display-xl text-[200px] opacity-[0.03] select-none text-primary pointer-events-none">
+                    PROMPT</div>
+                <span class="font-label-code text-label-code text-tertiary mb-4 block">SECTION / 02</span>
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-8">Prompt Engineering</h2>
+                <div class="space-y-6">
+                    <div class="p-6 glass-card rounded-xl border-l-4 border-l-tertiary prompt-glow">
+                        <div
+                            class="font-label-code text-label-code text-on-surface-variant mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[16px]"
+                                data-icon="shutter_speed">shutter_speed</span>
+                            MODEL_RUN: STEPS_50 | CFG_7.5
+                        </div>
+                        <p class="font-label-code text-label-code text-primary italic">
+                            "A hyper-structured architectural lattice suspended in a vacuum of liquid nitrogen,
+                            refractive glass elements, iridescent silver highlights, sharp lime-green fiber optics,
+                            volumetric lighting, 8k resolution, minimalist futurism."
+                        </p>
+                    </div>
+                    <div
+                        class="p-6 glass-card rounded-xl border-l-4 border-l-outline-variant opacity-50 hover:opacity-100 transition-all cursor-default">
+                        <p class="font-label-code text-label-code text-on-surface-variant italic">
+                            "Microscopic neural pathways forged from chrome and silicon, glowing neon nodes, deep
+                            shadows, atmospheric bokeh, macro photography style, obsidian background."
+                        </p>
+                    </div>
+                    <div
+                        class="p-6 glass-card rounded-xl border-l-4 border-l-outline-variant opacity-50 hover:opacity-100 transition-all cursor-default">
+                        <p class="font-label-code text-label-code text-on-surface-variant italic">
+                            "Ethereal fabric flowing in zero gravity, woven from digital light particles, iridescent
+                            surface tension, silver and mint green color palette, cinematic focus."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative aspect-square">
+                <div class="absolute inset-0 bg-tertiary/10 blur-[100px] rounded-full"></div>
+                <div class="relative w-full h-full glass-card rounded-2xl overflow-hidden p-2">
+                    <img class="w-full h-full object-cover rounded-xl"
+                        data-alt="A stunning visual output of a complex geometric lattice structure floating in a dark, atmospheric space. The structure is rendered in polished silver and crystalline materials, with neon green light tracing the edges of the grid. The composition is asymmetrical and dynamic, showcasing the intricate detail of generative architectural design in a high-concept futurist style."
+                        src="images/image-06.jpg" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 03. Experiments (Fluid Lab) -->
+    <section class="py-32 px-margin-desktop bg-surface-container-low" id="experiments">
+        <div class="text-center max-w-2xl mx-auto mb-20">
+            <span class="font-label-code text-label-code text-tertiary mb-4 block">SECTION / 03</span>
+            <h2 class="font-headline-lg text-headline-lg text-primary">Experimental Lab</h2>
+            <p class="text-on-surface-variant mt-4">Where models are broken, pushed to their limits, and retrained on
+                the edges of chaos.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+            <!-- Lab Card 1 -->
+            <div class="glass-card p-1 group cursor-pointer overflow-hidden rounded-xl">
+                <div class="relative aspect-video overflow-hidden rounded-lg mb-6">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                        data-alt="A digital abstract representing the concept of 'broken data'. Shards of glass-like silver and lime green fragments are suspended in a high-velocity swirl. The background is a gradient of deep charcoals and blacks. The image captures the chaotic beauty of an AI model failing to find order, resulting in a mesmerizing explosion of digital debris."
+                        src="images/image-07.jpg" />
+                    <div
+                        class="absolute inset-0 bg-tertiary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-label-caps text-label-caps text-tertiary">#EXP_004</span>
+                        <span class="material-symbols-outlined text-primary" data-icon="science">science</span>
+                    </div>
+                    <h4 class="font-headline-sm text-headline-sm mb-2">Entropy Leak</h4>
+                    <p class="text-on-surface-variant font-body-md">Testing the aesthetic of model collapse by
+                        intentionally introducing noise into the latent vector.</p>
+                </div>
+            </div>
+            <!-- Lab Card 2 -->
+            <div class="glass-card p-1 group cursor-pointer overflow-hidden rounded-xl">
+                <div class="relative aspect-video overflow-hidden rounded-lg mb-6">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                        data-alt="Macro generative study of artificial skin textures. The surface is composed of iridescent silver scales and glowing green pores. Soft, cool-toned lighting emphasizes the tactile quality of the artificial material. The style is hyper-realistic yet clearly speculative, blending biological patterns with high-end industrial aesthetics in a futuristic dark setting."
+                        src="images/image-08.jpg" />
+                    <div
+                        class="absolute inset-0 bg-primary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-label-caps text-label-caps text-tertiary">#EXP_009</span>
+                        <span class="material-symbols-outlined text-primary" data-icon="science">science</span>
+                    </div>
+                    <h4 class="font-headline-sm text-headline-sm mb-2">Bio-Digital Fiber</h4>
+                    <p class="text-on-surface-variant font-body-md">Cross-modal synthesis between botanical structures
+                        and micro-circuitry layouts.</p>
+                </div>
+            </div>
+            <!-- Lab Card 3 -->
+            <div class="glass-card p-1 group cursor-pointer overflow-hidden rounded-xl">
+                <div class="relative aspect-video overflow-hidden rounded-lg mb-6">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                        data-alt="A futuristic digital interface visualization featuring layers of translucent menus and floating data nodes. The color scheme is dominated by silver-white elements on a deep obsidian black background, with sharp accents of electric green. The composition is deep and layered, suggesting a sophisticated sentient AI dashboard or a master artist's generative workbench."
+                        src="images/image-09.jpg" />
+                    <div
+                        class="absolute inset-0 bg-secondary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-label-caps text-label-caps text-tertiary">#EXP_012</span>
+                        <span class="material-symbols-outlined text-primary" data-icon="science">science</span>
+                    </div>
+                    <h4 class="font-headline-sm text-headline-sm mb-2">Neural UI</h4>
+                    <p class="text-on-surface-variant font-body-md">Exploring how AI perceives human interaction through
+                        generated interface metaphors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer / Contact -->
+    <footer class="py-24 px-margin-desktop border-t border-outline-variant/20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+            <div>
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-8 tracking-tighter">AETHER</h2>
+                <div class="flex gap-4">
+                    <span class="material-symbols-outlined text-tertiary" data-icon="terminal">terminal</span>
+                    <span class="font-label-code text-label-code text-on-surface-variant">LOGGED IN AS:
+                        SYSTEM_ADMIN_01</span>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-8">
+                <div>
+                    <span class="font-label-caps text-label-caps text-primary mb-6 block">NAVIGATION</span>
+                    <ul class="space-y-4 text-on-surface-variant font-body-md">
+                        <li><a class="hover:text-tertiary transition-colors" href="#">Manifesto</a></li>
+                        <li><a class="hover:text-tertiary transition-colors" href="#">Latent Archive</a></li>
+                        <li><a class="hover:text-tertiary transition-colors" href="#">Tools &amp; Lora</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="font-label-caps text-label-caps text-primary mb-6 block">CONNECT</span>
+                    <ul class="space-y-4 text-on-surface-variant font-body-md">
+                        <li><a class="hover:text-tertiary transition-colors" href="#">Discord</a></li>
+                        <li><a class="hover:text-tertiary transition-colors" href="#">Twitter / X</a></li>
+                        <li><a class="hover:text-tertiary transition-colors" href="#">Foundation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div
+            class="mt-24 flex justify-between items-center border-t border-outline-variant/10 pt-8 text-on-surface-variant opacity-50">
+            <p class="font-label-code text-label-code">© 2026 AETHER. Free HTML Template by <a href="https://templatesjungle.com/" target="_blank">TemplatesJungle.com</a></p>
+            <p class="font-label-code text-label-code">COORDINATES: 37.7749° N, 122.4194° W</p>
+        </div>
+    </footer>
+    <!-- BottomNavBar -->
+    <nav
+        class="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 p-2 z-50 bg-surface-container/60 backdrop-blur-2xl border border-outline-variant/30 rounded-full shadow-[0_0_40px_rgba(160,216,0,0.15)] min-w-[320px]">
+        <a class="flex flex-col items-center justify-center text-tertiary-fixed bg-tertiary-container/40 rounded-full px-6 py-2 transition-all duration-300 active:scale-90"
+            href="#gallery">
+            <span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+            <span class="font-label-caps text-label-caps mt-1">Gallery</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-2 hover:bg-surface-variant/40 hover:text-primary transition-all duration-300"
+            href="#prompts">
+            <span class="material-symbols-outlined" data-icon="shutter_speed">shutter_speed</span>
+            <span class="font-label-caps text-label-caps mt-1">Prompts</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-2 hover:bg-surface-variant/40 hover:text-primary transition-all duration-300"
+            href="#experiments">
+            <span class="material-symbols-outlined" data-icon="science">science</span>
+            <span class="font-label-caps text-label-caps mt-1">Experiments</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-2 hover:bg-surface-variant/40 hover:text-primary transition-all duration-300"
+            href="#">
+            <span class="material-symbols-outlined" data-icon="info">info</span>
+            <span class="font-label-caps text-label-caps mt-1">Info</span>
+        </a>
+    </nav>
+</body>
+
+</html>
