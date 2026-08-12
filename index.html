@@ -1,444 +1,331 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en">
-
+<html lang="pl" class="dark">
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>AETHER | Synthesizing the Unseen</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Geist:wght@400;600&amp;family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script id="tailwind-config">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOMEK — Portfolio</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Geist:wght@400;600&family=Space+Mono:wght@400;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
-                    "colors": {
-                        "tertiary-fixed": "#b7f700",
-                        "primary-fixed-dim": "#c8c6c7",
-                        "surface-variant": "#353437",
-                        "secondary-fixed-dim": "#c6c6c6",
-                        "on-primary": "#313031",
-                        "surface-container-high": "#2a2a2c",
-                        "on-error-container": "#ffdad6",
-                        "surface-container-lowest": "#0e0e10",
-                        "on-primary-fixed": "#1c1b1c",
-                        "surface-container-highest": "#353437",
-                        "on-tertiary-fixed-variant": "#374e00",
-                        "secondary-container": "#454747",
-                        "on-background": "#e4e2e4",
-                        "on-surface": "#e4e2e4",
-                        "surface-bright": "#39393b",
-                        "error": "#ffb4ab",
-                        "inverse-primary": "#5f5e5f",
-                        "primary": "#c8c6c7",
-                        "inverse-surface": "#e4e2e4",
-                        "on-secondary-fixed": "#1a1c1c",
-                        "outline": "#919094",
-                        "on-primary-container": "#7a797a",
-                        "on-secondary-fixed-variant": "#454747",
-                        "on-surface-variant": "#c7c6ca",
-                        "primary-container": "#0a0a0b",
-                        "tertiary-fixed-dim": "#a0d800",
-                        "surface-tint": "#c8c6c7",
-                        "secondary-fixed": "#e2e2e2",
-                        "surface": "#131315",
-                        "surface-dim": "#131315",
-                        "inverse-on-surface": "#303032",
-                        "surface-container-low": "#1b1b1d",
-                        "primary-fixed": "#e5e2e3",
-                        "surface-container": "#1f1f21",
-                        "error-container": "#93000a",
-                        "outline-variant": "#46464a",
-                        "on-error": "#690005",
-                        "on-tertiary": "#253600",
-                        "on-secondary-container": "#b5b5b5",
-                        "secondary": "#c6c6c6",
-                        "tertiary": "#a0d800",
-                        "on-tertiary-fixed": "#141f00",
-                        "on-primary-fixed-variant": "#474647",
-                        "tertiary-container": "#060c00",
-                        "on-tertiary-container": "#618500",
-                        "on-secondary": "#2f3131",
-                        "background": "#131315"
+                    colors: {
+                        neon: "#a0d800",
+                        bg: "#0a0a0b",
+                        card: "#131315",
+                        muted: "#a7a6aa"
                     },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "margin-mobile": "20px",
-                        "unit": "4px",
-                        "overlap-offset": "-32px",
-                        "margin-desktop": "64px",
-                        "gutter": "24px"
-                    },
-                    "fontFamily": {
-                        "headline-lg": ["Syne"],
-                        "body-md": ["Geist"],
-                        "display-xl": ["Syne"],
-                        "label-code": ["Space Mono"],
-                        "body-lg": ["Geist"],
-                        "display-xl-mobile": ["Syne"],
-                        "headline-sm": ["Syne"],
-                        "label-caps": ["Space Mono"]
-                    },
-                    "fontSize": {
-                        "headline-lg": ["42px", { "lineHeight": "48px", "fontWeight": "700" }],
-                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-                        "display-xl": ["84px", { "lineHeight": "90px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
-                        "label-code": ["13px", { "lineHeight": "18px", "letterSpacing": "0.05em", "fontWeight": "400" }],
-                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
-                        "display-xl-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
-                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
-                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.15em", "fontWeight": "700" }]
+                    fontFamily: {
+                        display: ["Syne"],
+                        body: ["Geist"],
+                        mono: ["Space Mono"]
                     }
-                },
-            },
+                }
+            }
         }
     </script>
+
     <style>
+        html { scroll-behavior: smooth; }
+
         body {
-            background-color: #0A0A0B;
+            background: #0a0a0b;
             color: #e4e2e4;
             overflow-x: hidden;
         }
 
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        ::selection {
+            background: #a0d800;
+            color: #141f00;
         }
 
-        .glass-card {
+        .glass {
+            background: rgba(255,255,255,.035);
+            border: 1px solid rgba(145,144,148,.14);
             backdrop-filter: blur(20px);
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(145, 144, 148, 0.1);
         }
 
-        .iridescent-border {
-            position: relative;
+        .glow {
+            box-shadow: 0 0 80px rgba(160,216,0,.08);
         }
 
-        .iridescent-border::after {
-            content: "";
-            position: absolute;
-            inset: -1px;
-            background: linear-gradient(45deg, #a0d800, #c8c6c7, #b7f700, #313031);
-            z-index: -1;
-            opacity: 0.2;
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-            -webkit-mask-composite: destination-out;
+        .project {
+            transition: transform .5s ease, border-color .5s ease, box-shadow .5s ease;
         }
 
-        .shimmer-hover:hover .shimmer-layer {
-            transform: translateX(100%);
-            transition: transform 0.8s ease-in-out;
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: rgba(160,216,0,.45);
+            box-shadow: 0 20px 70px rgba(0,0,0,.45);
         }
 
-        .prompt-glow {
-            box-shadow: 0 0 40px rgba(160, 216, 0, 0.1);
+        .project img {
+            transition: transform .8s ease, filter .8s ease;
+            filter: grayscale(30%);
+        }
+
+        .project:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #e4e2e4, #a0d800, #e4e2e4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: linear-gradient(to bottom, black, transparent 80%);
         }
     </style>
 </head>
 
-<body class="font-body-md text-body-md selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
-    <!-- TopAppBar -->
-    <nav
-        class="fixed top-0 w-full backdrop-blur-xl bg-surface/10 border-b border-outline-variant/20 flex justify-between items-center px-margin-desktop py-4 z-50">
-        <div class="font-headline-sm text-headline-sm font-bold tracking-tighter text-primary dark:text-primary">AETHER
-        </div>
-        <div class="hidden md:flex items-center gap-8">
-            <a class="text-tertiary-fixed font-bold font-label-caps text-label-caps hover:text-tertiary transition-colors duration-500"
-                href="#gallery">Gallery</a>
-            <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors duration-500"
-                href="#prompts">Prompts</a>
-            <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors duration-500"
-                href="#experiments">Experiments</a>
-        </div>
-        <div class="flex items-center gap-4 text-primary">
-            <span class="material-symbols-outlined hover:text-tertiary transition-all active:scale-95 cursor-pointer"
-                data-icon="terminal">terminal</span>
-            <span class="material-symbols-outlined hover:text-tertiary transition-all active:scale-95 cursor-pointer"
-                data-icon="account_circle">account_circle</span>
+<body class="font-body">
+
+    <!-- NAV -->
+    <nav class="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-[#0a0a0b]/70 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-6 md:px-10 py-5 flex items-center justify-between">
+            <a href="#" class="font-display font-bold text-xl tracking-tighter">TOMEK<span class="text-neon">.</span></a>
+
+            <div class="hidden md:flex items-center gap-8 font-mono text-[11px] uppercase tracking-[.15em]">
+                <a href="#o-mnie" class="text-gray-400 hover:text-neon transition">O mnie</a>
+                <a href="#projekty" class="text-gray-400 hover:text-neon transition">Projekty</a>
+                <a href="#kontakt" class="text-gray-400 hover:text-neon transition">Kontakt</a>
+            </div>
+
+            <span class="font-mono text-[10px] text-neon uppercase tracking-widest">Portfolio / 2026</span>
         </div>
     </nav>
-    <!-- Hero Section -->
-    <header class="relative min-h-screen flex flex-col justify-center px-margin-desktop pt-24">
-        <div class="absolute inset-0 z-0 overflow-hidden">
-            <div class="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-tertiary/10 rounded-full blur-[120px]"></div>
-            <div class="absolute bottom-1/4 -left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px]"></div>
-        </div>
-        <div class="relative z-10 max-w-5xl">
-            <div
-                class="inline-block px-4 py-1 glass-card rounded-full mb-8 font-label-code text-label-code text-tertiary border border-tertiary/20">
-                LATEST MODEL: V.04_SYNTHESIS
-            </div>
-            <h1 class="font-display-xl text-headline-lg lg:text-display-xl text-primary leading-[0.9] mb-8">
-                Synthesizing <br />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-secondary">the
-                    Unseen.</span>
-            </h1>
-            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12">
-                A journey through the latent space where algorithmic logic meets ethereal beauty. Explore a curated
-                collection of generative art driven by experimental prompt engineering.
-            </p>
-            <div class="flex gap-6">
-                <button
-                    class="px-8 py-4 glass-card iridescent-border font-label-caps text-label-caps text-primary hover:bg-tertiary-container/40 transition-all duration-300">
-                    VIEW ARCHIVE
-                </button>
-                <button
-                    class="px-8 py-4 font-label-caps text-label-caps text-on-surface border border-outline/30 hover:border-tertiary/50 transition-all">
-                    THE PROCESS
-                </button>
-            </div>
-        </div>
-        <!-- Overlapping Fluid Art Pieces -->
-        <div class="mt-overlap-offset relative w-full h-[500px] md:h-[600px] z-20 pointer-events-none">
-            <div class="absolute right-0 top-24 w-3/4 h-full glass-card rounded-xl overflow-hidden rotate-2 shadow-2xl">
-                <img class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
-                    data-alt="A sprawling, intricate digital landscape composed of liquid mercury and iridescent glass shards. The composition uses a dark, futuristic aesthetic with neon green light cutting through a deep obsidian atmosphere. High-contrast lighting highlights the fluid, organic shapes that defy physics, creating a sense of ethereal mystery and advanced technology."
-                    src="images/image-02.jpg" />
-            </div>
-            <div
-                class="absolute left-margin-desktop top-12 w-1/3 h-[400px] glass-card rounded-xl overflow-hidden -rotate-3 border-tertiary/30 shadow-2xl">
-                <img class="w-full h-full object-cover opacity-80"
-                    data-alt="Close-up macro shot of a generative structure resembling crystalline bio-luminescent flora. The textures are a mix of translucent silver and vibrant lime green fibers glowing from within. The lighting is moody and focused, casting soft shadows that emphasize the complex geometric patterns and ethereal depth of the artificial organism."
-                    src="images/image-01.jpg" />
-            </div>
-        </div>
-    </header>
-    <!-- 01. Latent Gallery -->
-    <section class="py-32 px-margin-desktop bg-surface-container-lowest" id="gallery">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-            <div class="max-w-xl">
-                <span class="font-label-code text-label-code text-tertiary mb-4 block">SECTION / 01</span>
-                <h2 class="font-headline-lg text-headline-lg text-primary">Latent Gallery</h2>
-                <p class="text-on-surface-variant mt-6">A floating grid of artifacts retrieved from the deep layers of
-                    neural networks. Each piece is an exploration of form, light, and mathematical serendipity.</p>
-            </div>
-            <div class="flex gap-4">
-                <button class="p-4 rounded-full border border-outline-variant hover:border-tertiary transition-all">
-                    <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
-                </button>
-                <button class="p-4 rounded-full border border-outline-variant hover:border-tertiary transition-all">
-                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
-                </button>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-            <div class="md:col-span-7 aspect-[4/5] glass-card overflow-hidden group relative shimmer-hover">
-                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
-                    data-alt="A grand, surreal architectural structure floating in a void of dark cosmic dust. The building is constructed from glowing silver filaments and translucent glass, reflecting faint ripples of neon green light. The mood is majestic and quiet, suggesting a futuristic sanctuary designed by a non-human intelligence, with light-refracting surfaces and deep atmospheric depth."
-                    src="images/image-03.jpg" />
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-surface-container-highest/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-8 flex flex-col justify-end">
-                    <span class="font-label-caps text-label-caps text-tertiary">#VOID_01</span>
-                    <h3 class="font-headline-sm text-headline-sm">The Silent Observatory</h3>
+
+    <!-- HERO -->
+    <main>
+        <section class="relative min-h-screen flex items-center px-6 md:px-10 pt-24 overflow-hidden">
+            <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+            <div class="absolute top-1/4 -right-40 w-[500px] h-[500px] bg-neon/10 rounded-full blur-[140px]"></div>
+            <div class="absolute bottom-10 -left-40 w-[450px] h-[450px] bg-white/[.025] rounded-full blur-[120px]"></div>
+
+            <div class="relative z-10 max-w-7xl w-full mx-auto">
+                <div class="max-w-5xl">
+                    <div class="inline-flex items-center gap-3 px-4 py-2 glass rounded-full mb-8 font-mono text-[11px] text-neon uppercase tracking-widest">
+                        <span class="w-2 h-2 rounded-full bg-neon animate-pulse"></span>
+                        Dostępny do współpracy
+                    </div>
+
+                    <p class="font-mono text-xs text-gray-500 uppercase tracking-[.2em] mb-5">
+                        Cześć, jestem Tomek
+                    </p>
+
+                    <h1 class="font-display font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-[110px] leading-[.85] tracking-[-.055em]">
+                        MAM 16 LAT.<br>
+                        <span class="gradient-text">DUŻE AMBICJE.</span>
+                    </h1>
+
+                    <p class="mt-10 max-w-2xl text-lg md:text-xl leading-8 text-gray-400">
+                        Tworzę rzeczy, rozwijam swoje umiejętności i szukam coraz trudniejszych wyzwań.
+                        To miejsce pokazuje moje projekty, pomysły i rzeczy, nad którymi aktualnie pracuję.
+                    </p>
+
+                    <div class="mt-10 flex flex-wrap gap-4">
+                        <a href="#projekty"
+                           class="px-7 py-4 bg-neon text-black font-mono text-xs font-bold tracking-widest uppercase hover:bg-[#b7f700] transition">
+                            Zobacz moje prace
+                        </a>
+                        <a href="#o-mnie"
+                           class="px-7 py-4 glass font-mono text-xs tracking-widest uppercase hover:border-neon/50 transition">
+                            Więcej o mnie
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-20 flex items-end justify-between border-t border-white/10 pt-5">
+                    <span class="font-mono text-[10px] text-gray-600 uppercase tracking-widest">01 / Introduction</span>
+                    <span class="font-mono text-[10px] text-gray-600 uppercase tracking-widest">Scroll to explore ↓</span>
                 </div>
             </div>
-            <div class="md:col-span-5 flex flex-col gap-gutter">
-                <div class="h-1/2 glass-card overflow-hidden group relative">
-                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                        data-alt="Abstract fluid dynamics rendered in high-definition digital art. Silvery metallic waves clash with neon green liquid, creating intricate turbulent patterns across the canvas. The lighting is cinematic, highlighting the sharp edges of the wave crests and the deep, dark valleys of the fluid. The aesthetic is clean, futuristic, and highly polished."
-                        src="images/image-04.jpg" />
+        </section>
+
+        <!-- ABOUT -->
+        <section id="o-mnie" class="py-28 md:py-36 px-6 md:px-10 border-t border-white/10">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-[.8fr_1.2fr] gap-16 md:gap-28">
+                <div>
+                    <span class="font-mono text-[11px] text-neon uppercase tracking-[.2em]">02 / O mnie</span>
+                    <h2 class="font-display text-4xl md:text-6xl font-bold tracking-tight mt-5">
+                        Jeszcze młody.<br>
+                        <span class="text-gray-500">Już głodny.</span>
+                    </h2>
                 </div>
-                <div class="h-1/2 glass-card overflow-hidden group relative">
-                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                        data-alt="A generative portrait of an entity composed entirely of refracted light and geometric glass prisms. The subject has no defined skin, only a complex network of silver threads and glowing green nodes. The background is a minimalist deep black, emphasizing the brilliance and transparency of the figure. The overall mood is ethereal and speculative."
-                        src="images/image-05.jpg" />
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- 02. Prompt Engineering -->
-    <section class="py-32 px-margin-desktop bg-surface overflow-hidden" id="prompts">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
-            <div class="relative">
-                <div
-                    class="absolute -top-12 -left-12 font-display-xl text-[200px] opacity-[0.03] select-none text-primary pointer-events-none">
-                    PROMPT</div>
-                <span class="font-label-code text-label-code text-tertiary mb-4 block">SECTION / 02</span>
-                <h2 class="font-headline-lg text-headline-lg text-primary mb-8">Prompt Engineering</h2>
-                <div class="space-y-6">
-                    <div class="p-6 glass-card rounded-xl border-l-4 border-l-tertiary prompt-glow">
-                        <div
-                            class="font-label-code text-label-code text-on-surface-variant mb-4 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-[16px]"
-                                data-icon="shutter_speed">shutter_speed</span>
-                            MODEL_RUN: STEPS_50 | CFG_7.5
+
+                <div class="text-gray-400 text-lg leading-8 max-w-2xl">
+                    <p>
+                        Mam na imię Tomek i mam 16 lat. Lubię uczyć się nowych rzeczy,
+                        eksperymentować i zamieniać pomysły w gotowe projekty.
+                    </p>
+                    <p class="mt-6">
+                        Nie chcę stać w miejscu. Każda kolejna praca ma być lepsza od poprzedniej,
+                        dlatego cały czas rozwijam swoje umiejętności i szukam nowych sposobów
+                        na tworzenie ciekawych rzeczy.
+                    </p>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-10">
+                        <div class="glass p-5">
+                            <div class="font-display text-3xl font-bold text-white">16</div>
+                            <div class="font-mono text-[10px] text-gray-500 uppercase tracking-widest mt-2">lat</div>
                         </div>
-                        <p class="font-label-code text-label-code text-primary italic">
-                            "A hyper-structured architectural lattice suspended in a vacuum of liquid nitrogen,
-                            refractive glass elements, iridescent silver highlights, sharp lime-green fiber optics,
-                            volumetric lighting, 8k resolution, minimalist futurism."
-                        </p>
-                    </div>
-                    <div
-                        class="p-6 glass-card rounded-xl border-l-4 border-l-outline-variant opacity-50 hover:opacity-100 transition-all cursor-default">
-                        <p class="font-label-code text-label-code text-on-surface-variant italic">
-                            "Microscopic neural pathways forged from chrome and silicon, glowing neon nodes, deep
-                            shadows, atmospheric bokeh, macro photography style, obsidian background."
-                        </p>
-                    </div>
-                    <div
-                        class="p-6 glass-card rounded-xl border-l-4 border-l-outline-variant opacity-50 hover:opacity-100 transition-all cursor-default">
-                        <p class="font-label-code text-label-code text-on-surface-variant italic">
-                            "Ethereal fabric flowing in zero gravity, woven from digital light particles, iridescent
-                            surface tension, silver and mint green color palette, cinematic focus."
-                        </p>
+                        <div class="glass p-5">
+                            <div class="font-display text-3xl font-bold text-neon">06</div>
+                            <div class="font-mono text-[10px] text-gray-500 uppercase tracking-widest mt-2">prac</div>
+                        </div>
+                        <div class="glass p-5 col-span-2 sm:col-span-1">
+                            <div class="font-display text-3xl font-bold text-white">∞</div>
+                            <div class="font-mono text-[10px] text-gray-500 uppercase tracking-widest mt-2">ambicji</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="relative aspect-square">
-                <div class="absolute inset-0 bg-tertiary/10 blur-[100px] rounded-full"></div>
-                <div class="relative w-full h-full glass-card rounded-2xl overflow-hidden p-2">
-                    <img class="w-full h-full object-cover rounded-xl"
-                        data-alt="A stunning visual output of a complex geometric lattice structure floating in a dark, atmospheric space. The structure is rendered in polished silver and crystalline materials, with neon green light tracing the edges of the grid. The composition is asymmetrical and dynamic, showcasing the intricate detail of generative architectural design in a high-concept futurist style."
-                        src="images/image-06.jpg" />
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projekty" class="py-28 md:py-36 px-6 md:px-10 bg-[#0d0d0f] border-y border-white/10">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+                    <div>
+                        <span class="font-mono text-[11px] text-neon uppercase tracking-[.2em]">03 / Projekty</span>
+                        <h2 class="font-display text-5xl md:text-7xl font-bold tracking-[-.04em] mt-5">
+                            Moje prace<span class="text-neon">.</span>
+                        </h2>
+                    </div>
+                    <p class="max-w-md text-gray-500 leading-7">
+                        Sześć miejsc na projekty, które najlepiej pokazują mój styl,
+                        rozwój i kierunek, w którym chcę iść.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                    <article class="project glass rounded-xl overflow-hidden">
+                        <div class="aspect-[4/3] overflow-hidden bg-[#161618]">
+                            <img src="images/image-01.jpg" alt="Projekt 01" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between font-mono text-[10px] text-gray-600 uppercase tracking-widest">
+                                <span>PROJECT / 01</span>
+                                <span>01</span>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold mt-4">Projekt pierwszy</h3>
+                            <p class="text-gray-500 text-sm leading-6 mt-2">Krótki opis projektu. Tutaj możesz napisać, co stworzyłeś i czego się przy tym nauczyłeś.</p>
+                        </div>
+                    </article>
+
+                    <article class="project glass rounded-xl overflow-hidden">
+                        <div class="aspect-[4/3] overflow-hidden bg-[#161618]">
+                            <img src="images/image-02.jpg" alt="Projekt 02" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between font-mono text-[10px] text-gray-600 uppercase tracking-widest">
+                                <span>PROJECT / 02</span><span>02</span>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold mt-4">Projekt drugi</h3>
+                            <p class="text-gray-500 text-sm leading-6 mt-2">Krótki opis projektu. Zamień ten tekst na informacje o swojej pracy.</p>
+                        </div>
+                    </article>
+
+                    <article class="project glass rounded-xl overflow-hidden">
+                        <div class="aspect-[4/3] overflow-hidden bg-[#161618]">
+                            <img src="images/image-03.jpg" alt="Projekt 03" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between font-mono text-[10px] text-gray-600 uppercase tracking-widest">
+                                <span>PROJECT / 03</span><span>03</span>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold mt-4">Projekt trzeci</h3>
+                            <p class="text-gray-500 text-sm leading-6 mt-2">Krótki opis projektu. Dodaj tutaj najważniejsze informacje i efekt końcowy.</p>
+                        </div>
+                    </article>
+
+                    <article class="project glass rounded-xl overflow-hidden">
+                        <div class="aspect-[4/3] overflow-hidden bg-[#161618]">
+                            <img src="images/image-04.jpg" alt="Projekt 04" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between font-mono text-[10px] text-gray-600 uppercase tracking-widest">
+                                <span>PROJECT / 04</span><span>04</span>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold mt-4">Projekt czwarty</h3>
+                            <p class="text-gray-500 text-sm leading-6 mt-2">Krótki opis projektu. Napisz tutaj, nad czym pracowałeś.</p>
+                        </div>
+                    </article>
+
+                    <article class="project glass rounded-xl overflow-hidden">
+                        <div class="aspect-[4/3] overflow-hidden bg-[#161618]">
+                            <img src="images/image-05.jpg" alt="Projekt 05" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between font-mono text-[10px] text-gray-600 uppercase tracking-widest">
+                                <span>PROJECT / 05</span><span>05</span>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold mt-4">Projekt piąty</h3>
+                            <p class="text-gray-500 text-sm leading-6 mt-2">Krótki opis projektu. Możesz tutaj dodać użyte technologie.</p>
+                        </div>
+                    </article>
+
+                    <article class="project glass rounded-xl overflow-hidden">
+                        <div class="aspect-[4/3] overflow-hidden bg-[#161618]">
+                            <img src="images/image-06.jpg" alt="Projekt 06" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between font-mono text-[10px] text-gray-600 uppercase tracking-widest">
+                                <span>PROJECT / 06</span><span>06</span>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold mt-4">Projekt szósty</h3>
+                            <p class="text-gray-500 text-sm leading-6 mt-2">Krótki opis projektu. Ostatnie miejsce na pracę, którą chcesz się pochwalić.</p>
+                        </div>
+                    </article>
+
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- 03. Experiments (Fluid Lab) -->
-    <section class="py-32 px-margin-desktop bg-surface-container-low" id="experiments">
-        <div class="text-center max-w-2xl mx-auto mb-20">
-            <span class="font-label-code text-label-code text-tertiary mb-4 block">SECTION / 03</span>
-            <h2 class="font-headline-lg text-headline-lg text-primary">Experimental Lab</h2>
-            <p class="text-on-surface-variant mt-4">Where models are broken, pushed to their limits, and retrained on
-                the edges of chaos.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-            <!-- Lab Card 1 -->
-            <div class="glass-card p-1 group cursor-pointer overflow-hidden rounded-xl">
-                <div class="relative aspect-video overflow-hidden rounded-lg mb-6">
-                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                        data-alt="A digital abstract representing the concept of 'broken data'. Shards of glass-like silver and lime green fragments are suspended in a high-velocity swirl. The background is a gradient of deep charcoals and blacks. The image captures the chaotic beauty of an AI model failing to find order, resulting in a mesmerizing explosion of digital debris."
-                        src="images/image-07.jpg" />
-                    <div
-                        class="absolute inset-0 bg-tertiary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity">
-                    </div>
-                </div>
-                <div class="p-6 pt-0">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="font-label-caps text-label-caps text-tertiary">#EXP_004</span>
-                        <span class="material-symbols-outlined text-primary" data-icon="science">science</span>
-                    </div>
-                    <h4 class="font-headline-sm text-headline-sm mb-2">Entropy Leak</h4>
-                    <p class="text-on-surface-variant font-body-md">Testing the aesthetic of model collapse by
-                        intentionally introducing noise into the latent vector.</p>
-                </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="kontakt" class="py-32 md:py-44 px-6 md:px-10 relative overflow-hidden">
+            <div class="absolute inset-0 bg-neon/[.025] pointer-events-none"></div>
+
+            <div class="max-w-5xl mx-auto text-center relative">
+                <span class="font-mono text-[11px] text-neon uppercase tracking-[.2em]">04 / Kontakt</span>
+
+                <h2 class="font-display font-extrabold text-5xl md:text-8xl tracking-[-.05em] leading-none mt-6">
+                    TO DOPIERO<br>
+                    <span class="gradient-text">POCZĄTEK.</span>
+                </h2>
+
+                <p class="max-w-xl mx-auto text-gray-500 text-lg leading-7 mt-8">
+                    Mam jeszcze dużo do nauczenia i jeszcze więcej do zrobienia.
+                    Jeśli chcesz zobaczyć więcej moich prac albo się ze mną skontaktować — napisz.
+                </p>
+
+                <a href="mailto:twojemail@example.com"
+                   class="inline-flex mt-10 px-8 py-4 bg-neon text-black font-mono text-xs font-bold uppercase tracking-widest hover:bg-[#b7f700] transition">
+                    Napisz do mnie
+                </a>
             </div>
-            <!-- Lab Card 2 -->
-            <div class="glass-card p-1 group cursor-pointer overflow-hidden rounded-xl">
-                <div class="relative aspect-video overflow-hidden rounded-lg mb-6">
-                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                        data-alt="Macro generative study of artificial skin textures. The surface is composed of iridescent silver scales and glowing green pores. Soft, cool-toned lighting emphasizes the tactile quality of the artificial material. The style is hyper-realistic yet clearly speculative, blending biological patterns with high-end industrial aesthetics in a futuristic dark setting."
-                        src="images/image-08.jpg" />
-                    <div
-                        class="absolute inset-0 bg-primary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity">
-                    </div>
-                </div>
-                <div class="p-6 pt-0">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="font-label-caps text-label-caps text-tertiary">#EXP_009</span>
-                        <span class="material-symbols-outlined text-primary" data-icon="science">science</span>
-                    </div>
-                    <h4 class="font-headline-sm text-headline-sm mb-2">Bio-Digital Fiber</h4>
-                    <p class="text-on-surface-variant font-body-md">Cross-modal synthesis between botanical structures
-                        and micro-circuitry layouts.</p>
-                </div>
-            </div>
-            <!-- Lab Card 3 -->
-            <div class="glass-card p-1 group cursor-pointer overflow-hidden rounded-xl">
-                <div class="relative aspect-video overflow-hidden rounded-lg mb-6">
-                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                        data-alt="A futuristic digital interface visualization featuring layers of translucent menus and floating data nodes. The color scheme is dominated by silver-white elements on a deep obsidian black background, with sharp accents of electric green. The composition is deep and layered, suggesting a sophisticated sentient AI dashboard or a master artist's generative workbench."
-                        src="images/image-09.jpg" />
-                    <div
-                        class="absolute inset-0 bg-secondary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity">
-                    </div>
-                </div>
-                <div class="p-6 pt-0">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="font-label-caps text-label-caps text-tertiary">#EXP_012</span>
-                        <span class="material-symbols-outlined text-primary" data-icon="science">science</span>
-                    </div>
-                    <h4 class="font-headline-sm text-headline-sm mb-2">Neural UI</h4>
-                    <p class="text-on-surface-variant font-body-md">Exploring how AI perceives human interaction through
-                        generated interface metaphors.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Footer / Contact -->
-    <footer class="py-24 px-margin-desktop border-t border-outline-variant/20">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
-            <div>
-                <h2 class="font-headline-lg text-headline-lg text-primary mb-8 tracking-tighter">AETHER</h2>
-                <div class="flex gap-4">
-                    <span class="material-symbols-outlined text-tertiary" data-icon="terminal">terminal</span>
-                    <span class="font-label-code text-label-code text-on-surface-variant">LOGGED IN AS:
-                        SYSTEM_ADMIN_01</span>
-                </div>
-            </div>
-            <div class="grid grid-cols-2 gap-8">
-                <div>
-                    <span class="font-label-caps text-label-caps text-primary mb-6 block">NAVIGATION</span>
-                    <ul class="space-y-4 text-on-surface-variant font-body-md">
-                        <li><a class="hover:text-tertiary transition-colors" href="#">Manifesto</a></li>
-                        <li><a class="hover:text-tertiary transition-colors" href="#">Latent Archive</a></li>
-                        <li><a class="hover:text-tertiary transition-colors" href="#">Tools &amp; Lora</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <span class="font-label-caps text-label-caps text-primary mb-6 block">CONNECT</span>
-                    <ul class="space-y-4 text-on-surface-variant font-body-md">
-                        <li><a class="hover:text-tertiary transition-colors" href="#">Discord</a></li>
-                        <li><a class="hover:text-tertiary transition-colors" href="#">Twitter / X</a></li>
-                        <li><a class="hover:text-tertiary transition-colors" href="#">Foundation</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div
-            class="mt-24 flex justify-between items-center border-t border-outline-variant/10 pt-8 text-on-surface-variant opacity-50">
-            <p class="font-label-code text-label-code">© 2026 AETHER. Free HTML Template by <a href="https://templatesjungle.com/" target="_blank">TemplatesJungle.com</a></p>
-            <p class="font-label-code text-label-code">COORDINATES: 37.7749° N, 122.4194° W</p>
+        </section>
+    </main>
+
+    <footer class="border-t border-white/10 px-6 md:px-10 py-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-4 font-mono text-[10px] text-gray-600 uppercase tracking-widest">
+            <span>© 2026 Tomek — Portfolio</span>
+            <span>16 lat / duże ambicje / ciągły rozwój</span>
         </div>
     </footer>
-    <!-- BottomNavBar -->
-    <nav
-        class="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 p-2 z-50 bg-surface-container/60 backdrop-blur-2xl border border-outline-variant/30 rounded-full shadow-[0_0_40px_rgba(160,216,0,0.15)] min-w-[320px]">
-        <a class="flex flex-col items-center justify-center text-tertiary-fixed bg-tertiary-container/40 rounded-full px-6 py-2 transition-all duration-300 active:scale-90"
-            href="#gallery">
-            <span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
-            <span class="font-label-caps text-label-caps mt-1">Gallery</span>
-        </a>
-        <a class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-2 hover:bg-surface-variant/40 hover:text-primary transition-all duration-300"
-            href="#prompts">
-            <span class="material-symbols-outlined" data-icon="shutter_speed">shutter_speed</span>
-            <span class="font-label-caps text-label-caps mt-1">Prompts</span>
-        </a>
-        <a class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-2 hover:bg-surface-variant/40 hover:text-primary transition-all duration-300"
-            href="#experiments">
-            <span class="material-symbols-outlined" data-icon="science">science</span>
-            <span class="font-label-caps text-label-caps mt-1">Experiments</span>
-        </a>
-        <a class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-2 hover:bg-surface-variant/40 hover:text-primary transition-all duration-300"
-            href="#">
-            <span class="material-symbols-outlined" data-icon="info">info</span>
-            <span class="font-label-caps text-label-caps mt-1">Info</span>
-        </a>
-    </nav>
-</body>
 
+</body>
 </html>
